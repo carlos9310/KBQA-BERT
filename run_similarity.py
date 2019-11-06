@@ -67,7 +67,7 @@ class DataProcessor(object):
 
 class SimProcessor(DataProcessor):
     def get_train_examples(self, data_dir):
-        file_path = os.path.join(data_dir, 'train.txt')
+        file_path = os.path.join(data_dir, 'training.txt')
         train_df = pd.read_csv(file_path, encoding='utf-8', sep='\t', header=None)
         train_data = []
         for index, train in enumerate(train_df.values):
@@ -91,7 +91,7 @@ class SimProcessor(DataProcessor):
         return dev_data
 
     def get_test_examples(self, data_dir):
-        file_path = os.path.join(data_dir, 'test.txt')
+        file_path = os.path.join(data_dir, 'testing.txt')
         test_df = pd.read_csv(file_path, encoding='utf-8', sep='\t', header=None)
         test_data = []
         for index, test in enumerate(test_df.values):
@@ -667,8 +667,8 @@ if __name__ == '__main__':
     if args.train:
         sim.set_mode(tf.estimator.ModeKeys.TRAIN)
         sim.train()
-        sim.set_mode(tf.estimator.ModeKeys.EVAL)
-        sim.eval()
+        # sim.set_mode(tf.estimator.ModeKeys.EVAL)
+        # sim.eval()
     if args.test:
         sim.set_mode(tf.estimator.ModeKeys.PREDICT)
         while True:

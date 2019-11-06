@@ -7,11 +7,11 @@ python run_ner.py \
   --init_checkpoint=./ModelParams/chinese_L-12_H-768_A-12/bert_model.ckpt \
   --data_config_path=./Config/NER/ner_data.conf \
   --do_train=True \
-  --do_eval=True \
+  --do_eval=False \
   --max_seq_length=128 \
   --lstm_size=128 \
   --num_layers=1 \
-  --train_batch_size=64 \
+  --train_batch_size=32 \
   --eval_batch_size=8 \
   --predict_batch_size=8 \
   --learning_rate=5e-5 \
